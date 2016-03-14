@@ -42,7 +42,7 @@ describe 'form' do
     fill_in 'description', with: "My post description"
 
     click_on "Submit Post"
-
+    expect(Post.all.count).to eq(1)
     expect(page).to have_content("My edit")
   end
 end
