@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post = Post.find(params[:id])
+    set_post
 	end
 
 	def new
@@ -18,4 +18,19 @@ class PostsController < ApplicationController
 	  @post.save
 	  redirect_to post_path(@post)
 	end
+
+  def edit
+    set_post
+  end
+
+  def update
+    set_post
+    @post.update(title: params[:title], description: params[:description])
+    redirect_to post_path(@post)
+  end
+
+  private
+  def set_post
+    @post = Post.find(params[:id])
+  end
 end
