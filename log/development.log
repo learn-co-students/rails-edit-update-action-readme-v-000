@@ -421,3 +421,161 @@ Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-12-31 14:38:13 -0600
+
+
+Started GET "/posts/new" for ::1 at 2016-04-17 23:41:29 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (17.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (29.7ms)
+Completed 200 OK in 2663ms (Views: 2531.2ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/posts" for ::1 at 2016-04-17 23:41:54 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pyoUiWRsap0j3kjjgPVyOzCIvbXApqMEBvp0ku66DNj+k/uX1cA/UMGNod7r3FzX7ziAS1Dey2vP0SYHAvYg6g==", "title"=>"Post 1", "description"=>"desknfjej\r\n", "commit"=>"Submit Post"}
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Post 1"], ["description", "desknfjej\r\n"], ["created_at", "2016-04-17 22:41:54.473295"], ["updated_at", "2016-04-17 22:41:54.473295"]]
+  [1m[35m (3.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 136ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/posts/3" for ::1 at 2016-04-17 23:41:54 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 744ms (Views: 637.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2016-04-17 23:42:06 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (236.7ms)
+Completed 500 Internal Server Error in 353ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (Missing partial posts/_post_form, application/_post_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/joshua/Development/code/rails-edit-update-action-readme-v-000/app/views"
+):
+    1: <%= render 'post_form' %>
+  app/views/posts/edit.html.erb:1:in `_app_views_posts_edit_html_erb___871405153190655837_70255916030960'
+
+
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (35.8ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.4ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (429.3ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.5ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (2.4ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.4ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (617.4ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (1270.0ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2016-04-17 23:42:56 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (84.3ms)
+Completed 500 Internal Server Error in 169ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (Missing partial posts/__post_form, application/__post_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/joshua/Development/code/rails-edit-update-action-readme-v-000/app/views"
+):
+    1: <%= render '_post_form' %>
+  app/views/posts/edit.html.erb:1:in `_app_views_posts_edit_html_erb___871405153190655837_70255929406560'
+
+
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (32.5ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (33.1ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (39.9ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (530.0ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.2ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.2ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (339.6ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.6ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (1273.2ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2016-04-17 23:43:58 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (3.6ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (49.0ms)
+Completed 500 Internal Server Error in 522ms (ActiveRecord: 3.6ms)
+
+ActionView::Template::Error (Missing partial posts/_post_form, application/_post_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/joshua/Development/code/rails-edit-update-action-readme-v-000/app/views"
+):
+    1: <%= render 'post_form' %>
+  app/views/posts/edit.html.erb:1:in `_app_views_posts_edit_html_erb___871405153190655837_70255941088340'
+
+
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (89.5ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (74.5ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (17.6ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (850.3ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (4.4ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (2.1ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.9ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (7.7ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (573.0ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (2.3ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.2ms)
+  Rendered /Users/joshua/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (1335.3ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2016-04-17 23:44:28 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (97.8ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/_post_form.html.erb (24.6ms)
+  Rendered posts/edit.html.erb within layouts/application (58.8ms)
+Completed 200 OK in 1719ms (Views: 1613.0ms | ActiveRecord: 97.8ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-04-17 23:44:32 +0100
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2016-04-17 23:44:32 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-04-17 23:44:32 +0100
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2016-04-17 23:44:32 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-04-17 23:44:32 +0100
+
+
+Started POST "/posts.3" for ::1 at 2016-04-17 23:46:09 +0100
+Processing by PostsController#create as 
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z50CVrdVC5+gLdOdSauVhgQw2jORiVS9pw/WnNGhf2k+JO1IBvleUkJ+OqAigrtq24DnzQHxPNJuJIQJPe1TWw==", "title"=>"Post 1", "description"=>"desknfjej\r\n", "commit"=>"Submit Post"}
+  [1m[35m (4.5ms)[0m  begin transaction
+  [1m[36mSQL (9.1ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Post 1"], ["description", "desknfjej\r\n"], ["created_at", "2016-04-17 22:46:09.584485"], ["updated_at", "2016-04-17 22:46:09.584485"]]
+  [1m[35m (422.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 678ms (ActiveRecord: 435.9ms)
+
+
+Started GET "/posts/4" for ::1 at 2016-04-17 23:46:10 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (1.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 1537ms (Views: 1526.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/new" for ::1 at 2016-04-17 23:46:20 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_post_form.html.erb (6.2ms)
+  Rendered posts/new.html.erb within layouts/application (72.9ms)
+Completed 200 OK in 1477ms (Views: 1472.0ms | ActiveRecord: 0.0ms)
