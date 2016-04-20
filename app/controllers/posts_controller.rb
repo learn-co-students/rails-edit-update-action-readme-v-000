@@ -25,7 +25,13 @@ class PostsController < ApplicationController
 
 	def update
 		@post = Post.find(params[:id])
-		@post.update(title: params[:title], description: params[:description])
+		if params[:title] != @post.title
+			@post.title = params[:title]
+		end
+		if params[:description] != @post.description
+			@post.description = params[:description]
+		end
+		@post.save
 		redirect_to post_path(@post)
 	end
 
