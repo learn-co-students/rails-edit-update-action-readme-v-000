@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :posts, only: [:index, :show, :new, :create, :edit, :destroy]
+  
+  # resources :posts, only: [:index, :show, :new, :create, :edit, :destroy]
 
-
+  resources :posts
   # get 'posts/:id/edit', to: 'posts#edit'
 
   put 'posts/:id', to: 'posts#update'
