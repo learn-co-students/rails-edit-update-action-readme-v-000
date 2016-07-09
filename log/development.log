@@ -421,3 +421,74 @@ Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-12-31 14:38:13 -0600
+
+
+Started GET "/" for ::1 at 2016-07-09 15:00:49 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/kmccrea/.rvm/gems/ruby-2.2.3/gems/railties-4.2.5/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 195ms (Views: 142.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-07-09 15:00:52 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/kmccrea/.rvm/gems/ruby-2.2.3/gems/railties-4.2.5/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2016-07-09 15:01:52 -0400
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 506ms (Views: 474.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for ::1 at 2016-07-09 15:02:28 -0400
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 132ms (Views: 131.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2016-07-09 15:02:48 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ju14bWXL435Tu+grHTO2Ws46+B4KqXJ3Nr/9PWYkI9Q19PApK++M9O7ljL6to+bXagicdJBbdT0qwBJoynIF4g==", "title"=>"Test Post", "description"=>"What's up?", "commit"=>"Submit Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (49.3ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Test Post"], ["description", "What's up?"], ["created_at", "2016-07-09 19:02:48.854302"], ["updated_at", "2016-07-09 19:02:48.854302"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 124ms (ActiveRecord: 50.7ms)
+
+
+Started GET "/posts/3" for ::1 at 2016-07-09 15:02:49 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 135ms (Views: 85.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2016-07-09 15:02:56 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 208ms (Views: 206.4ms | ActiveRecord: 0.1ms)
+
+
+Started PUT "/posts/3" for ::1 at 2016-07-09 15:03:04 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"doj2gPGku6g++6pzAmUcXyCAnO872wxEta0Uz09UoSrNkX7Ev4DUIoOlzuay9UzShLL4haEpCw6p0vua4wKHHA==", "title"=>"Test Post 1", "description"=>"What's up?", "commit"=>"Submit Post", "id"=>"3"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "posts" SET "title" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["title", "Test Post 1"], ["updated_at", "2016-07-09 19:03:04.756921"], ["id", 3]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 8ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/posts/3" for ::1 at 2016-07-09 15:03:04 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.1ms)
