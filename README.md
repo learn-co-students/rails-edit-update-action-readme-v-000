@@ -76,7 +76,7 @@ Now that the `edit` view template will have access to the `Post` object (stored 
 ```erb
 <% # app/views/posts/edit.html.erb %>
 
-<%= form_tag posts_path do %>
+<%= form_tag posts_path(@post) do %>
   <label>Post title:</label><br>
   <%= text_field_tag :title, @post.title %><br>
 
