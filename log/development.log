@@ -421,3 +421,56 @@ Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-12-31 14:38:13 -0600
+
+
+Started GET "/posts/new" for 73.40.108.182 at 2017-07-26 23:22:26 +0000
+Cannot render console from 73.40.108.182! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 3415ms (Views: 3395.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/posts" for 73.40.108.182 at 2017-07-26 23:22:36 +0000
+Cannot render console from 73.40.108.182! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jA5OhNMmoz+MqidG0uYaitoBBqjUnz8vDhm5wUzvSwSIdACg0QoTlrX8op23bdUPx3Otau99I0BEFb5KtfIcWw==", "title"=>"a new post", "description"=>"a new post", "commit"=>"Submit Post"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "a new post"], ["description", "a new post"], ["created_at", "2017-07-26 23:22:36.327868"], ["updated_at", "2017-07-26 23:22:36.327868"]]
+  [1m[35m (8.7ms)[0m  commit transaction
+Redirected to http://159.203.89.115:30001/posts/3
+Completed 302 Found in 22ms (ActiveRecord: 9.6ms)
+
+
+Started GET "/posts/3" for 73.40.108.182 at 2017-07-26 23:22:36 +0000
+Cannot render console from 73.40.108.182! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 29ms (Views: 17.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/3/edit" for 73.40.108.182 at 2017-07-26 23:23:09 +0000
+Cannot render console from 73.40.108.182! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 17ms (Views: 14.9ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/posts/3" for 73.40.108.182 at 2017-07-26 23:23:15 +0000
+Cannot render console from 73.40.108.182! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zPohVfrIPYXcNof7M7JZ5AUUZJIJPbbRMFE2e6IPx8TIgG9x+OSNLOVgAiBWOZZhGGbPUDLfqr56XTHwWxKQmw==", "title"=>"a new post", "description"=>"this post this time", "commit"=>"Submit Post", "id"=>"3"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+RuntimeError ({"utf8"=>"✓", "_method"=>"put", "authenticity_token"=>"zPohVfrIPYXcNof7M7JZ5AUUZJIJPbbRMFE2e6IPx8TIgG9x+OSNLOVgAiBWOZZhGGbPUDLfqr56XTHwWxKQmw==", "title"=>"a new post", "description"=>"this post this time", "commit"=>"Submit Post", "controller"=>"posts", "action"=>"update", "id"=>"3"}):
+  app/controllers/posts_controller.rb:27:in `update'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (80.9ms)
