@@ -421,3 +421,135 @@ Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-12-31 14:38:13 -0600
+
+
+Started GET "/" for 68.199.177.33 at 2017-10-19 17:20:53 +0000
+Cannot render console from 68.199.177.33! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/railties-4.2.5/lib/rails/templates/rails/welcome/index.html.erb (1.8ms)
+Completed 200 OK in 71ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 68.199.177.33 at 2017-10-19 17:20:57 +0000
+Cannot render console from 68.199.177.33! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 548ms (Views: 540.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/posts" for 68.199.177.33 at 2017-10-19 17:21:01 +0000
+Cannot render console from 68.199.177.33! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fg0D8R8wKa8iR0PT/3sLgO/M2rkuUPWgi23MyTJjqTIN6eX3+UKyX1NykV1pYFXxHZv6dZUiGKVMKrk2RLLijg==", "title"=>"aDSS", "description"=>"dZ", "commit"=>"Submit Post"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "aDSS"], ["description", "dZ"], ["created_at", "2017-10-19 17:21:01.070045"], ["updated_at", "2017-10-19 17:21:01.070045"]]
+  [1m[35m (2.9ms)[0m  commit transaction
+Redirected to http://159.203.91.59:30005/posts/3
+Completed 302 Found in 46ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/posts/3" for 68.199.177.33 at 2017-10-19 17:21:01 +0000
+Cannot render console from 68.199.177.33! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 29ms (Views: 20.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/3/edit" for 68.199.177.33 at 2017-10-19 17:21:05 +0000
+Cannot render console from 68.199.177.33! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 0.1ms)
+
+SyntaxError (/home/crittenbach-42490/code/labs/rails-edit-update-action-readme-v-000/app/views/posts/edit.html.erb:6: syntax error, unexpected tIVAR, expecting '('
+...xt_area_tag :description. @post.description );@output_buffer...
+...                               ^):
+  app/views/posts/edit.html.erb:6: syntax error, unexpected tIVAR, expecting '('
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (54.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (74.9ms)
+
+
+Started GET "/posts/3/edit" for 68.199.177.33 at 2017-10-19 17:22:08 +0000
+Cannot render console from 68.199.177.33! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined method `stringify_keys' for "put":String):
+    1: <%= form_tag post_path(@post), method="put" do %>
+    2:   <label>Post title:</label><br>
+    3:   <%= text_field_tag :title, @post.title %><br>
+    4: 
+  app/views/posts/edit.html.erb:1:in `_app_views_posts_edit_html_erb__3173622364519760495_69960859366780'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (63.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (82.6ms)
+
+
+Started GET "/" for 68.199.177.33 at 2017-10-19 17:23:29 +0000
+Cannot render console from 68.199.177.33! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/railties-4.2.5/lib/rails/templates/rails/welcome/index.html.erb (1.6ms)
+Completed 200 OK in 71ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1/edit" for 68.199.177.33 at 2017-10-19 17:23:36 +0000
+Cannot render console from 68.199.177.33! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/edit.html.erb within layouts/application (56.3ms)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (undefined method `stringify_keys' for "put":String):
+    1: <%= form_tag post_path(@post), method="put" do %>
+    2:   <label>Post title:</label><br>
+    3:   <%= text_field_tag :title, @post.title %><br>
+    4: 
+  app/views/posts/edit.html.erb:1:in `_app_views_posts_edit_html_erb__2745786040512104475_46219560'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (49.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (75.6ms)
+
+
+Started GET "/posts/1/edit" for 68.199.177.33 at 2017-10-19 17:23:55 +0000
+Cannot render console from 68.199.177.33! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/edit.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 579ms (Views: 577.6ms | ActiveRecord: 0.1ms)
+
+
+Started PUT "/posts/1" for 68.199.177.33 at 2017-10-19 17:23:57 +0000
+Cannot render console from 68.199.177.33! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XN7pICsar3ALtR0pU3z4W3LxXH/FTPfZJV4e4CljTipHOg8mzWg0gHqAz6fFZ6YqgKZ8s34+GtziGWsfX7IFlg==", "title"=>"Rails Introduction Quiz", "description"=>"asdfasdf", "commit"=>"Submit Post", "id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+RuntimeError ({"utf8"=>"✓", "_method"=>"put", "authenticity_token"=>"XN7pICsar3ALtR0pU3z4W3LxXH/FTPfZJV4e4CljTipHOg8mzWg0gHqAz6fFZ6YqgKZ8s34+GtziGWsfX7IFlg==", "title"=>"Rails Introduction Quiz", "description"=>"asdfasdf", "commit"=>"Submit Post", "controller"=>"posts", "action"=>"update", "id"=>"1"}):
+  app/controllers/posts_controller.rb:27:in `update'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.5ms)
