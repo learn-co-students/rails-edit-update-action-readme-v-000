@@ -1,4 +1,5 @@
 require 'rails_helper'
+--color
 
 describe 'navigate' do
   before do
