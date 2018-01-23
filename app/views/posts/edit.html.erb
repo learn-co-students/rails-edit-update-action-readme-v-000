@@ -1,0 +1,38 @@
+<!--refactor form so it auto-fills the form fields with the data from @post
+**change target of the form_tag method from posts_path to post_path(@post).
+this is equivalent to updating an existing post via the /posts/:id action in Sinatra.
+** a form_tag will default to sending an HTTP POST request. We need to add
+an argument to the form_tag so that it knows which route the data should be passed through
+and which HTTP verb to use-->
+<%= form_tag post_path(@post), method: "put" do %>
+<label>Post title:</label><br>
+<%= text_field_tag :title, @post.title %><br>
+
+<label>Post Description</label><br>
+<%= text_area_tag :description, @post.description %><br>
+
+<%= submit_tag "Submit Post" %>
+<% end %>
+
+
+
+<!-- <%= form_tag posts_path do %>
+  <label>Post title:</label><br>
+  <%= text_field_tag :title, @post.title %><br>
+
+  <label>Post Description</label><br>
+  <%= text_area_tag :description, @post.description %><br>
+
+  <%= submit_tag "Submit Post" %>
+<% end %> -->
+
+
+<!-- <%= form_tag posts_path do %>
+  <label>Post title:</label><br>
+  <%= text_field_tag :title %><br>
+
+  <label>Post Description</label><br>
+  <%= text_area_tag :description %><br>
+
+  <%= submit_tag "Submit Post" %>
+<% end %> -->
