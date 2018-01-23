@@ -18,4 +18,14 @@ class PostsController < ApplicationController
 	  @post.save
 	  redirect_to post_path(@post)
 	end
+
+	def edit # implicitly renders the views/posts/edit.html.erb view file, where form to edit post is presented
+		@post = Post.find(params[:id])
+	end
+
+	def update
+	  @post = Post.find(params[:id])
+	  @post.update(title: params[:title], description: params[:description])
+	  redirect_to post_path(@post)
+	end
 end
