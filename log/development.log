@@ -421,3 +421,109 @@ Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-12-31 14:38:13 -0600
+
+
+Started GET "/posts" for ::1 at 2018-01-24 16:08:25 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 313ms (Views: 301.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/edit" for ::1 at 2018-01-24 16:08:45 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=edit):
+  app/controllers/posts_controller.rb:7:in `show'
+
+
+  Rendered /Users/preston.marshall/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.6ms)
+  Rendered /Users/preston.marshall/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/preston.marshall/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/preston.marshall/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.4ms)
+
+
+Started GET "/posts" for ::1 at 2018-01-24 16:09:59 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Where's Waldo"], ["description", "He is in Texas."], ["created_at", "2018-01-24 21:11:40.139434"], ["updated_at", "2018-01-24 21:11:40.139434"]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/posts" for ::1 at 2018-01-24 16:11:44 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2018-01-24 16:11:52 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  Rendered posts/edit.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 9ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2018-01-24 16:14:11 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/edit.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 15ms (Views: 11.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2018-01-24 16:16:49 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/edit.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 15ms (Views: 11.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2018-01-24 16:17:13 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.1ms)
+
+
+Started PUT "/posts/3" for ::1 at 2018-01-24 16:17:23 -0500
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1igdNH9wLOEqzcM9pb6sb7NFXMZ3IjSPaM6jJ67LomOjS6ADcWRXip6xtKfo5Ea4iibaAoifIiYn6XvRwX4VBw==", "title"=>"Where's Waldo", "description"=>"He is in Italy.", "commit"=>"Submit Post", "id"=>"3"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+RuntimeError ({"utf8"=>"✓", "_method"=>"put", "authenticity_token"=>"1igdNH9wLOEqzcM9pb6sb7NFXMZ3IjSPaM6jJ67LomOjS6ADcWRXip6xtKfo5Ea4iibaAoifIiYn6XvRwX4VBw==", "title"=>"Where's Waldo", "description"=>"He is in Italy.", "commit"=>"Submit Post", "controller"=>"posts", "action"=>"update", "id"=>"3"}):
+  app/controllers/posts_controller.rb:27:in `update'
+
+
+  Rendered /Users/preston.marshall/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
+  Rendered /Users/preston.marshall/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/preston.marshall/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/preston.marshall/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.3ms)
+
+
+Started PUT "/posts/3" for ::1 at 2018-01-24 16:20:05 -0500
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1igdNH9wLOEqzcM9pb6sb7NFXMZ3IjSPaM6jJ67LomOjS6ADcWRXip6xtKfo5Ea4iibaAoifIiYn6XvRwX4VBw==", "title"=>"Where's Waldo", "description"=>"He is in Italy.", "commit"=>"Submit Post", "id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "posts" SET "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["description", "He is in Italy."], ["updated_at", "2018-01-24 21:20:05.830003"], ["id", 3]]
+  [1m[35m (2.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 12ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/posts/3" for ::1 at 2018-01-24 16:20:05 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.1ms)
