@@ -421,3 +421,62 @@ Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-12-31 14:38:13 -0600
+
+
+Started GET "/posts/edit" for ::1 at 2018-03-23 06:36:45 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 18ms (ActiveRecord: 0.4ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=edit):
+  app/controllers/posts_controller.rb:7:in `show'
+
+
+  Rendered /Users/jeffreywithers/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.9ms)
+  Rendered /Users/jeffreywithers/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/jeffreywithers/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jeffreywithers/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (77.6ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2018-03-23 06:36:58 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/edit.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 362ms (Views: 358.7ms | ActiveRecord: 0.1ms)
+
+
+Started PUT "/posts/1" for ::1 at 2018-03-23 06:37:14 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Gp6K0vB1hdL+blB7F2oSkLmiQq/zFzAsmBjwpby4UWfhkqc/AJTq8MH4ZVKDE/QXdnVvn3fBNU7HSmkj2XsfRg==", "title"=>"My title", "description"=>"My edits", "commit"=>"Submit Post", "id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+RuntimeError ({"utf8"=>"✓", "_method"=>"put", "authenticity_token"=>"Gp6K0vB1hdL+blB7F2oSkLmiQq/zFzAsmBjwpby4UWfhkqc/AJTq8MH4ZVKDE/QXdnVvn3fBNU7HSmkj2XsfRg==", "title"=>"My title", "description"=>"My edits", "commit"=>"Submit Post", "controller"=>"posts", "action"=>"update", "id"=>"1"}):
+  app/controllers/posts_controller.rb:27:in `update'
+
+
+  Rendered /Users/jeffreywithers/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /Users/jeffreywithers/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/jeffreywithers/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/jeffreywithers/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (72.3ms)
+
+
+Started PUT "/posts/1" for ::1 at 2018-03-23 06:49:08 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Gp6K0vB1hdL+blB7F2oSkLmiQq/zFzAsmBjwpby4UWfhkqc/AJTq8MH4ZVKDE/QXdnVvn3fBNU7HSmkj2XsfRg==", "title"=>"My title", "description"=>"My edits", "commit"=>"Submit Post", "id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  UPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["title", "My title"], ["description", "My edits"], ["updated_at", "2018-03-23 10:49:08.671431"], ["id", 1]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 27ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2018-03-23 06:49:08 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.1ms)
