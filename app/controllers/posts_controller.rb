@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+	before_action :find_post, only: [:show, :edit, :update]
 	def index
 		@posts = Post.all
 	end
@@ -18,4 +19,19 @@ class PostsController < ApplicationController
 	  @post.save
 	  redirect_to post_path(@post)
 	end
+
+	def edit
+	end
+
+	def update
+		@post.update(title: params[:title], description: params[:description])
+		redirect_to post_path(@post)
+	end
+
+	private
+
+	def find_post
+		@post = Post.find(params[:id])
+	end
+
 end
