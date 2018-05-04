@@ -1,0 +1,22 @@
+<!-- <%= form_tag posts_path do %>
+  <label>Post title:</label><br>
+  <%= text_field_tag :title %><br>
+
+  <label>Post Description</label><br>
+  <%= text_area_tag :description %><br>
+
+  <%= submit_tag "Submit Post" %>
+<% end %> -->
+
+
+<%= form_tag post_path(@post), method: "put" do %>
+  <label>Post title:</label><br>
+  <%= text_field_tag :title, @post.title %><br>
+
+  <label>Post Description</label><br>
+  <%= text_area_tag :description, @post.description %><br>
+
+  <%= submit_tag "Submit Post" %>
+<% end %>
+
+<!-- posts_path is used for submitting a new post via the /posts action in Sinatra and post_path(@post) is the equivalent of updating an existing post via the /posts/:id action in Sinatra. -->
