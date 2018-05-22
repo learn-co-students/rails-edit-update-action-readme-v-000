@@ -105,7 +105,7 @@ end
 
 The `raise` method will cause the application to pause and print out the `params` on an error page. You could also see the `params` if you called `puts params.inspect`; using `puts` would simply require you to track down the data in the Rails server log.
 
-If you open up the browser, navigate to an edit page (such as `localhost:3000/post/6/edit`), change some elements in the form, and submit it, it should take you to an error page that prints out the params from the form, such as in the below image:
+If you open up the browser, navigate to an edit page (such as `localhost:3000/posts/6/edit`), change some elements in the form, and submit it, it should take you to an error page that prints out the params from the form, such as in the below image:
 
 ![Raised Exception for Update Action](https://s3.amazonaws.com/flatiron-bucket/readme-lessons/update_raised_exception.png)
 
