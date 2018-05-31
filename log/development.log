@@ -421,3 +421,70 @@ Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-12-31 14:38:13 -0600
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-05-31 13:17:06 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 410ms (Views: 400.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-05-31 13:17:07 -0400
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2018-05-31 13:17:16 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/edit.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 14.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-05-31 13:19:07 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+UPHxt75SGefIbvUxsl/ayc1xVH0TW5EuSq2sRkHdPn+L8J7Magkk4+O2ZqWWNin9f960ZhZzcg3r+QqttJ8SQ==", "title"=>"Rails Introduction Quiz!!!", "description"=>"asdfasdf!!!", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Rails Introduction Quiz!!!"], ["description", "asdfasdf!!!"], ["created_at", "2018-05-31 17:19:07.060437"], ["updated_at", "2018-05-31 17:19:07.060437"]]
+  [1m[35m (84.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 103ms (ActiveRecord: 85.4ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2018-05-31 13:19:07 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 28ms (Views: 25.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-05-31 13:19:21 -0400
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2018-05-31 13:19:26 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/edit.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.1ms)
+
+
+Started PUT "/posts/1" for 127.0.0.1 at 2018-05-31 13:19:56 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4tRx7Jl9j70PrdaXPd8juoxjd8H62P82u3bCkL6ZluXluHRRdizjSR8CtNltToR2XqnIQZbMXLo185ALEUyeVQ==", "title"=>"Rails Introduction Quiz??", "description"=>"asdfasdf??", "commit"=>"Submit Post", "id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+RuntimeError ({"utf8"=>"✓", "_method"=>"put", "authenticity_token"=>"4tRx7Jl9j70PrdaXPd8juoxjd8H62P82u3bCkL6ZluXluHRRdizjSR8CtNltToR2XqnIQZbMXLo185ALEUyeVQ==", "title"=>"Rails Introduction Quiz??", "description"=>"asdfasdf??", "commit"=>"Submit Post", "controller"=>"posts", "action"=>"update", "id"=>"1"}):
+  app/controllers/posts_controller.rb:27:in `update'
+
+
+  Rendered /home/brittlegit/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /home/brittlegit/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/brittlegit/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/brittlegit/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.8ms)
