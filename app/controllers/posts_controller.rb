@@ -25,9 +25,9 @@ class PostsController < ApplicationController
 
 	def update
 		@post = Post.find(params[:id])
-		if @post.title != params[:title]
+		if @post.title != params[:title] && @post.description == params[:description]
 			@post.update(title: params[:title])
-		elsif @post.description != params[:description]
+		elsif @post.description != params[:description] && @post.title == params[:title]
 			@post.update(description: params[:description])
 		else
 			@post.update(title: params[:title], description: params[:description])
