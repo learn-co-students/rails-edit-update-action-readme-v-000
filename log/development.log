@@ -1241,3 +1241,118 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 5]]
   Rendered posts/show.html.erb within layouts/application (0.1ms)
 Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2018-06-30 15:47:38 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/edit.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 0.7ms)
+
+SyntaxError (/Users/davidmarkel/Flatiron/Rails/rails-edit-update-action-readme-v-000/app/views/posts/edit.html.erb:1: syntax error, unexpected tLABEL, expecting keyword_end
+...rm_tag post_path(@post) method: "put" do @output_buffer.safe...
+...                               ^
+/Users/davidmarkel/Flatiron/Rails/rails-edit-update-action-readme-v-000/app/views/posts/edit.html.erb:1: syntax error, unexpected keyword_do, expecting keyword_end
+...st_path(@post) method: "put" do @output_buffer.safe_append='
+...                               ^
+/Users/davidmarkel/Flatiron/Rails/rails-edit-update-action-readme-v-000/app/views/posts/edit.html.erb:11: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/posts/edit.html.erb:1: syntax error, unexpected tLABEL, expecting keyword_end
+  app/views/posts/edit.html.erb:1: syntax error, unexpected keyword_do, expecting keyword_end
+  app/views/posts/edit.html.erb:11: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/davidmarkel/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (48.9ms)
+  Rendered /Users/davidmarkel/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.7ms)
+  Rendered /Users/davidmarkel/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.5ms)
+  Rendered /Users/davidmarkel/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (241.0ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2018-06-30 15:48:52 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 445ms (Views: 435.8ms | ActiveRecord: 0.7ms)
+
+
+Started PUT "/posts/1" for ::1 at 2018-06-30 15:49:11 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uM58gh+Db1Wz0WCLbswUeY5pn2TDrTow2Cb+sT05L/EKcyt/XcacTFeOEl3jH2iirHi4kMtHRqc0th4/kpPIeA==", "title"=>"Rails Introduction Quiz", "description"=>"asdfasdf", "commit"=>"Submit Post", "id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+RuntimeError ({"utf8"=>"✓", "_method"=>"put", "authenticity_token"=>"uM58gh+Db1Wz0WCLbswUeY5pn2TDrTow2Cb+sT05L/EKcyt/XcacTFeOEl3jH2iirHi4kMtHRqc0th4/kpPIeA==", "title"=>"Rails Introduction Quiz", "description"=>"asdfasdf", "commit"=>"Submit Post", "controller"=>"posts", "action"=>"update", "id"=>"1"}):
+  app/controllers/posts_controller.rb:28:in `update'
+
+
+  Rendered /Users/davidmarkel/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/davidmarkel/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered /Users/davidmarkel/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/davidmarkel/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (102.8ms)
+
+
+Started GET "/posts/1" for ::1 at 2018-06-30 15:53:19 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 93ms (Views: 82.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts" for ::1 at 2018-06-30 15:53:25 -0400
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 71ms (Views: 69.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for ::1 at 2018-06-30 15:53:32 -0400
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 40ms (Views: 39.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2018-06-30 15:53:50 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UW5m1UYAmkgiuz66Tp4NMcBeheXE/rnQxslQAxV5vIzj0zEoBEVpUcbkTGzDTXHq4k+iEcwUxUcqWbCNutNbBQ==", "title"=>"I went to a march today", "description"=>"And it was really fricking hot outside.", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "I went to a march today"], ["description", "And it was really fricking hot outside."], ["created_at", "2018-06-30 19:53:50.509939"], ["updated_at", "2018-06-30 19:53:50.509939"]]
+  [1m[35m (7.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/6
+Completed 302 Found in 63ms (ActiveRecord: 8.2ms)
+
+
+Started GET "/posts/6" for ::1 at 2018-06-30 15:53:50 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 54ms (Views: 52.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/6/edit" for ::1 at 2018-06-30 15:53:55 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered posts/edit.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 0.1ms)
+
+
+Started PUT "/posts/6" for ::1 at 2018-06-30 15:54:03 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SwMt8TK8Sg96/IyZUYS/oLBBoojOnIptOQSz4drfpgP5vnoMcPm5Fp6j/k/cV8N7klCFfMZ29vrVlFNvdXVBig==", "title"=>"I went to a march today", "description"=>"With my nieces", "commit"=>"Submit Post", "id"=>"6"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "posts" SET "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["description", "With my nieces"], ["updated_at", "2018-06-30 19:54:03.300191"], ["id", 6]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/6
+Completed 302 Found in 8ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/posts/6" for ::1 at 2018-06-30 15:54:03 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 28ms (Views: 25.6ms | ActiveRecord: 0.2ms)
