@@ -421,3 +421,129 @@ Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-12-31 14:38:13 -0600
+
+
+Started GET "/posts" for ::1 at 2018-07-09 17:47:35 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 429ms (Views: 417.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2018-07-09 17:47:57 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  Rendered posts/edit.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2018-07-09 17:49:11 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 47ms (Views: 34.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/posts" for ::1 at 2018-07-09 17:52:16 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TGQ1bpBNN/m4JDeKB3UArZQKexUS+G7R6P2cHzeIGwHhbcLmD7ZgzU2y0fjU36jzbPGVH0xNAnsiVJJWVlBGAg==", "title"=>"Rails Introduction Quiz", "description"=>"Updated Description", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Rails Introduction Quiz"], ["description", "Updated Description"], ["created_at", "2018-07-09 21:52:16.269143"], ["updated_at", "2018-07-09 21:52:16.269143"]]
+  [1m[35m (2.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 18ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/posts/3" for ::1 at 2018-07-09 17:52:16 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/3" for ::1 at 2018-07-09 17:53:17 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2018-07-09 17:53:21 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/posts/3" for ::1 at 2018-07-09 17:53:24 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bMk4ZTe9/VncWv+Lo6NtRxvlegOgkLTKemueJ0RHfJrBwM/tqEaqbSnMGflwCcUZ4x6UCf4l2GCwwpBuJZ8hmQ==", "title"=>"Rails Introduction Quiz", "description"=>"Updated Description 2", "commit"=>"Submit Post", "id"=>"3"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+RuntimeError ({"utf8"=>"✓", "_method"=>"put", "authenticity_token"=>"bMk4ZTe9/VncWv+Lo6NtRxvlegOgkLTKemueJ0RHfJrBwM/tqEaqbSnMGflwCcUZ4x6UCf4l2GCwwpBuJZ8hmQ==", "title"=>"Rails Introduction Quiz", "description"=>"Updated Description 2", "commit"=>"Submit Post", "controller"=>"posts", "action"=>"update", "id"=>"3"}):
+  app/controllers/posts_controller.rb:27:in `update'
+
+
+  Rendered /Users/isaacv/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /Users/isaacv/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/isaacv/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/isaacv/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (99.5ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2018-07-09 17:57:27 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 22ms (Views: 16.8ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/posts/3" for ::1 at 2018-07-09 17:57:31 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ROF3inPB7/CkP7NkQMZoHokLM3+fWiUUg6FkYeAI1Jjp6IAC7Dq4xFGpVRaTbMBAcfDddcHvSb5JCGoogdCJmw==", "title"=>"Rails Introduction Quiz", "description"=>"Updated Description 2", "commit"=>"Submit Post", "id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "posts" SET "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["description", "Updated Description 2"], ["updated_at", "2018-07-09 21:57:31.254854"], ["id", 3]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 5ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/3" for ::1 at 2018-07-09 17:57:31 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2018-07-09 17:59:54 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 23ms (Views: 17.3ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/posts/3" for ::1 at 2018-07-09 18:00:01 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YUHXR+6n869MiUVYS6bDjfnqKIw6KVDdI4AkW5npr1zMSCDPcVykm7kfoyqYDGvTARHGhmScPHfpKSoS+DHyXw==", "title"=>"Rails Introduction Quiz Update", "description"=>"Updated Description 3", "commit"=>"Submit Post", "id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", "Rails Introduction Quiz Update"], ["description", "Updated Description 3"], ["updated_at", "2018-07-09 22:00:01.793796"], ["id", 3]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 4ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/3" for ::1 at 2018-07-09 18:00:01 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.1ms)
