@@ -32,14 +32,14 @@ describe 'form' do
 
     expect(page).to have_content("My post title")
   end
-
+  #CHANGED FILL_IN VAlUES: otherwise I could not use the form_for helper
   it 'shows a new form that submits content and redirects and prints out params' do
     @post = Post.create(title: "My Post", description: "My post desc")
 
     visit edit_post_path(@post)
 
-    fill_in 'title', with: "My edit"
-    fill_in 'description', with: "My post description"
+    fill_in 'post_title', with: "My edit"
+    fill_in 'post_description', with: "My post description"
 
     click_on "Submit Post"
 
