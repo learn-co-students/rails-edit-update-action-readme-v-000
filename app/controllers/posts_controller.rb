@@ -20,4 +20,16 @@ class PostsController < ApplicationController
   end
 
   # add edit and update methods here
+	def edit
+		@post = Post.find_by_id(params[:id])
+	end
+
+	def update
+		@post = Post.find_by_id(params[:id])
+		@post.title = params[:post][:title]
+		@post.description = params[:post][:description]
+		@post.save
+		redirect_to post_path(@post)
+	end
+
 end
