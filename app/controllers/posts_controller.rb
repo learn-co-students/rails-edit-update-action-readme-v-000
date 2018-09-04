@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:id])
   end
 
   def new
@@ -19,5 +19,13 @@ class PostsController < ApplicationController
     redirect_to post_path(@post)
   end
 
-  # add edit and update methods here
+  def edit
+    @post = Post.find_by(id: params[:id])
+  end
+ 
+  def update
+    @post = Post.find_by(id: params[:id])
+    @post.update(title: params[:title], description: params[:description])
+    redirect_to post_path(@post)
+  end
 end
