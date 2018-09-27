@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    # binding.pry
     @posts = Post.all
   end
 
@@ -19,5 +20,14 @@ class PostsController < ApplicationController
     redirect_to post_path(@post)
   end
 
-  # add edit and update methods here
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    # binding.pry
+    @post = Post.find(params[:id])
+    @post.update(title: params["post"]["title"], description: params["post"]["description"])
+    redirect_to post_path(@post)
+  end
 end
