@@ -19,5 +19,14 @@ class PostsController < ApplicationController
     redirect_to post_path(@post)
   end
 
-  # add edit and update methods here
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    puts params.inspect
+    @post = Post.find(params[:id])
+    @post.update(params[:post])
+    redirect_to post_path(@post)
+  end
 end

@@ -38,8 +38,8 @@ describe 'form' do
 
     visit edit_post_path(@post)
 
-    fill_in 'title', with: "My edit"
-    fill_in 'description', with: "My post description"
+    fill_in 'post_title', with: "My edit" #accounts for differences from 'form_for' usage
+    fill_in 'post_description', with: "My post description" #accounts for differences from 'form_for' usage
 
     click_on "Submit Post"
 
