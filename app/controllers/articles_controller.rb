@@ -1,11 +1,9 @@
+require 'pry'
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
   end
 
-  def show
-    @article = Article.find(params[:id])
-  end
 
   def new
     @article = Article.new
@@ -24,7 +22,14 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    raise params.inspect
+    @article = Article.find(params[:id])
+    @article.update(title: params[:article][:title], description: params[:article][:description])
+    redirect_to article_path(@article)
   end
+
+  def show
+    @article = Article.find(params[:id])
+  end
+
 
 end
