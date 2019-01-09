@@ -5,12 +5,10 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    binding.pry
   end
 
   def new
     @article = Article.new
-    binding.pry
   end
 
   def create
@@ -27,8 +25,7 @@ class ArticlesController < ApplicationController
   
   def update
     @article = Article.find(params[:id])
-    binding.pry
-    @article.update(:title => params[:title], :description => params[:description])
-    redirect_to article_path
+    @article.update(params[:article])
+    redirect_to article_path(@article)
   end
 end
