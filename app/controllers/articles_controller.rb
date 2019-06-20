@@ -25,8 +25,12 @@ class ArticlesController < ApplicationController
   end
   
   def update
+    raise params.inspect
+    #The raise method will cause the application to pause and print out the params on an error page.
+     #We'll take advantage of Active Record's update method so that we're not manually assigning each attribute:
     @article = Article.find(params[:id])
     @article.update(title: params[:article][:title], description: params[:article][:description])
     redirect_to article_path(@article)
+   
   end
 end

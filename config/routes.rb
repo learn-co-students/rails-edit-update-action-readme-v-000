@@ -6,4 +6,7 @@ Rails.application.routes.draw do
 
   #or you could do this
   resources :articles, only: [:index, :show, :new, :create, :edit, :update]
+  #shortcut to get and patch routes and paths ^
+  #get 'articles/:id/edit', to: 'articles#edit', as: :edit_article
+  #patch 'articles/:id', to: 'articles#update'
 end
