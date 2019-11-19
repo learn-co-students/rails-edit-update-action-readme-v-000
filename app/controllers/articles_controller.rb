@@ -20,4 +20,12 @@ class ArticlesController < ApplicationController
   end
 
   # add edit and update methods here
+  def edit
+    @article = Article.find(params[:id])
+    # My guess: #find_by_id is better.
+  end
+
+  def update
+    
+  end
 end
