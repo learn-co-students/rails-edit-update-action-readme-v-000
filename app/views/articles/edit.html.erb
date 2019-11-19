@@ -1,9 +1,47 @@
-<%= form_tag articles_path do %>
-  <label>Article title:</label><br>
-  <%= text_field_tag :title %><br>
+<!-- Final (refactored) result: -->
+<%= form_for @article do |f| %>
+  <!-- For some reason, only the first word in the label gets capitalized. -->
+  <%= f.label 'Article Title' %><br>
+  <%= f.text_field :title %><br>
 
-  <label>Article Description</label><br>
-  <%= text_area_tag :description %><br>
+  <%= f.label 'Article Description' %><br>
+  <%= f.text_area :description %><br>
 
-  <%= submit_tag "Submit Article" %>
+  <%= f.submit "Submit Article" %>
 <% end %>
+
+<!-- My initial guess:
+  <%#= form_for @article do %>
+    <label>Article title:</label><br>
+    <%#= text_field_tag :title, value: @article.title %><br>
+
+    <label>Article Description</label><br>
+    <%#= text_area_tag :description, value: @article.description %><br>
+
+    <%#= submit_tag "Submit Article" %>
+  <%# end %>
+-->
+
+<!-- My second guess:
+  <%#= form_for @article do %>
+    <label>Article title:</label><br>
+    <%#= text_field_tag :title, nil, value: @article.title %><br>
+
+    <label>Article Description</label><br>
+    <%#= text_area_tag :description, nil, value: @article.description %><br>
+
+    <%#= submit_tag "Submit Article" %>
+  <%# end %>
+-->
+
+<!-- My third guess (this one actually WORKED):
+  <%#= form_for @article do %>
+    <label>Article title:</label><br>
+    <%#= text_field_tag :title, @article.title %><br>
+
+    <label>Article Description</label><br>
+    <%#= text_area_tag :description, @article.description %><br>
+
+    <%#= submit_tag "Submit Article" %>
+  <%# end %>
+-->
